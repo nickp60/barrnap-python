@@ -2,7 +2,6 @@ language: python
 os:
 - linux
 dist: trusty
-sudo: required
 python:
 - '3.5'
 - '3.6'
@@ -10,7 +9,6 @@ before install:
 - echo "$PATH"
 install:
 - pip install coveralls
-- pip install -r requirements.txt
 script:
 - python setup.py install
 - nosetests --with-coverage --cover-package=barrnap ./test_barrnap.py -v
