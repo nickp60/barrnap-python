@@ -8,7 +8,9 @@ import platform
 import argparse
 import subprocess
 import operator
+import shutil
 import logging
+
 
 # global variables
 OPSYS = platform.system().lower()
@@ -19,8 +21,7 @@ AUTHOR = 'Torsten Seemann <torsten.seemann@gmail.com>'
 URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
 DBDIR = os.path.join(os.path.dirname(os.path.dirname(EXE)),
                      "db")
-NHMMER = os.path.join(os.path.dirname(os.path.dirname(EXE)),
-                      "binaries", OPSYS, "nhmmer")
+NHMMER = shutil.which("nhmmer")
 
 LENG = {
     "5S_rRNA": 119,
@@ -122,14 +123,14 @@ def main(args, logger=None):
     logger.info("Obtained from {0}".format(URL))
 
     logger.debug("Detected operating system: {0}".format(platform.system()))
-    if OPSYS not in os.listdir(os.path.join(os.path.dirname(os.path.dirname(EXE)),"binaries")):
-        if shutil.which(NHMMER) is None:
-            logger.error("No binary for your OS '{0}' is included. If you have one, copy it to $NHMMER. Exiting...".format(OPSYS))
-            sys.exit(1)
-        else:
-            NHMMER = shutil.which(nhmmer)
-    else:
-        pass
+    # if OPSYS not in os.listdir(os.path.join(os.path.dirname(os.path.dirname(EXE)),"binaries")):
+    #     if shutil.which(NHMMER) is None:
+    #         logger.error("No binary for your OS '{0}' is included. If you have one, copy it to $NHMMER. Exiting...".format(OPSYS))
+    #         sys.exit(1)
+    #     else:
+    #         NHMMER = shutil.which(nhmmer)
+    # else:
+    #     pass
     #  check threads
     if not args.threads > 0:
         logger.error("Invalid --threads $threads")
