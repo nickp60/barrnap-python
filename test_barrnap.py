@@ -13,7 +13,7 @@ from argparse import Namespace
 
 from unittest.mock import Mock
 
-from barrnap import main
+from barrnap.barrnap import main
 
 logger = logging
 
