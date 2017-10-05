@@ -1,0 +1,7 @@
+include *.md
+include LICENSE
+include db/*
+include examples/*
+include sample_data/*
+LICENSE.SILVA
+LICENSE.Rfam
