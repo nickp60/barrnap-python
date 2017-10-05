@@ -16,7 +16,7 @@ import pkg_resources
 # global variables
 OPSYS = platform.system().lower()
 EXE = __file__
-VERSION = "0.8d"
+VERSION = "0.8c"
 DESC = "rapid ribosomal RNA prediction"
 AUTHOR = 'Torsten Seemann <torsten.seemann@gmail.com>'
 URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
@@ -24,8 +24,7 @@ URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
 #DBDIR = os.path.join(os.path.dirname(os.path.dirname(EXE)),"db")
 # our db of HMMs should be installed in site-packages somewhere when the
 # package was installed
-resource_package = pkg_resources.Requirement.parse("barrnap")
-DBDIR = pkg_resources.resource_filename(resource_package, 'db')
+DBDIR = pkg_resources.resource_filename('barrnap', 'db')
 NHMMER = shutil.which("nhmmer")
 
 LENG = {

@@ -1,7 +1,4 @@
 include *.md
-include LICENSE
-include LICENSE.SILVA
-include LICENSE.Rfam
-include db/*
-include examples/*
-include sample_data/*
+include LICENS*
+#graft barrnap/db
+#graft barrnap/examples
