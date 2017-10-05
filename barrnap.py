@@ -16,7 +16,7 @@ import pkg_resources
 # global variables
 OPSYS = platform.system().lower()
 EXE = __file__
-VERSION = "0.8.1"
+VERSION = "0.0.1"
 DESC = "rapid ribosomal RNA prediction"
 AUTHOR = 'Torsten Seemann <torsten.seemann@gmail.com>'
 URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
@@ -60,7 +60,7 @@ def get_args():  # pragma: no cover
     """
     """
     parser = argparse.ArgumentParser(
-        description="barrnap ported to python3",
+        description="barrnap 0.8 ported to python3",
         usage=showUsage(),
         add_help=False)  # to allow for custom help
     parser.add_argument("fasta", action="store")
