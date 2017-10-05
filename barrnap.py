@@ -16,7 +16,7 @@ import pkg_resources
 # global variables
 OPSYS = platform.system().lower()
 EXE = __file__
-VERSION = "0.8b"
+VERSION = "0.8c"
 DESC = "rapid ribosomal RNA prediction"
 AUTHOR = 'Torsten Seemann <torsten.seemann@gmail.com>'
 URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
