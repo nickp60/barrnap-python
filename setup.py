@@ -97,18 +97,18 @@ setup(
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
-    data_files=[
-        ('db', [ "db/bac.hmm", "db/euk.hmm", "db/mito.hmm", "db/arc.hmm"]),
-        ('examples', [ "examples/archaea.fna", "examples/bacteria.fna",
-                       "examples/empty.fna", "examples/fungus.fna",
-                       "examples/mitochondria.fna", "examples/nohits.fna",
-                       "examples/null.fna", "examples/protein.fna",
-                       "examples/small.fna"]),
-    ],
-    # package_data={
-    #    '': [path.join(__name__, "examples/*"),
-    #         path.join(__name__, "db/*")],
-    # },
+    # data_files=[
+    #     ('db', [ "db/bac.hmm", "db/euk.hmm", "db/mito.hmm", "db/arc.hmm"]),
+    #     ('examples', [ "examples/archaea.fna", "examples/bacteria.fna",
+    #                    "examples/empty.fna", "examples/fungus.fna",
+    #                    "examples/mitochondria.fna", "examples/nohits.fna",
+    #                    "examples/null.fna", "examples/protein.fna",
+    #                    "examples/small.fna"]),
+    # ],
+    package_data={
+       '': [path.join(__name__, "examples/*"),
+            path.join(__name__, "db/*")],
+    },
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:

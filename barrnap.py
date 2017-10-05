@@ -25,7 +25,9 @@ URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
 # our db of HMMs should be installed in site-packages somewhere when the
 # package was installed
 resource_package = pkg_resources.Requirement.parse("barrnap")
-DBDIR = pkg_resources.resource_filename(resource_package, 'db')
+resource_path = '/'.join(['', 'db', ''])
+
+DBDIR = pkg_resources.resource_filename(resource_package, resource_path)
 NHMMER = shutil.which("nhmmer")
 
 LENG = {
