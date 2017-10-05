@@ -23,7 +23,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version="0.8",
+    version="0.8b",
 
     description='python package for barrnap ',
     # long_description=long_description,
@@ -112,11 +112,6 @@ setup(
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
-    entry_points={
-       'console_scripts': [
-           'ribo=riboSeed.ribo:main',
-       ],
-    },
     # Using the scripts keyword here for speed, as the entry points are not
     # yet defined
     scripts=['barrnap.py'],

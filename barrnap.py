@@ -10,17 +10,24 @@ import subprocess
 import operator
 import shutil
 import logging
+import pkg_resources
 
 
 # global variables
 OPSYS = platform.system().lower()
 EXE = __file__
-VERSION = "0.7"
+VERSION = "0.8b"
 DESC = "rapid ribosomal RNA prediction"
 AUTHOR = 'Torsten Seemann <torsten.seemann@gmail.com>'
 URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
-DBDIR = os.path.join(os.path.dirname(os.path.dirname(EXE)),
-                     "db")
+
+#DBDIR = os.path.join(os.path.dirname(os.path.dirname(EXE)),"db")
+# our db of HMMs should be installed in site-packages somewhere when the
+# package was installed
+resource_package = pkg_resources.Requirement.parse("barrnap")
+print(resource_package)
+DBDIR = pkg_resources.resource_filename(resource_package, "db")
+
 NHMMER = shutil.which("nhmmer")
 
 LENG = {
@@ -162,6 +169,7 @@ def main(args, logger=None):
     hmmdb = os.path.join(DBDIR, "{0}.hmm".format(args.kingdom))
     if not os.path.exists(hmmdb):
         logger.error("Can't find database: {0}".format(hmmdb))
+        sys.exit(1)
     else:
         logger.debug("Using database: {0}".format(hmmdb))
 
