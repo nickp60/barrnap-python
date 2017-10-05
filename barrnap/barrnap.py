@@ -16,7 +16,7 @@ import pkg_resources
 # global variables
 OPSYS = platform.system().lower()
 EXE = __file__
-VERSION = "0.0.4"
+VERSION = "0.0.5"
 DESC = "rapid ribosomal RNA prediction"
 AUTHOR = 'Torsten Seemann <torsten.seemann@gmail.com>'
 URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
@@ -173,16 +173,27 @@ def main(args, logger=None):
     if not os.path.exists(hmmdb):
         logger.warning("Can't find database: {0}".format(hmmdb))
         logger.warning(
-            "attempting to find databases in bin/db, in case " +
+            "attempting to find databases in ./db, in case " +
             " this was installed via conda alongside regular" +
             " barrnap")
         hmmdb = os.path.join(
-            os.path.dirname(__file__),
+            os.path.dirname(os.path.dirname(__file__)),
             "db",
             "{0}.hmm".format(args.kingdom))
         if not os.path.exists(hmmdb):
-            logger.error("Nope, can't find database: {0}".format(hmmdb))
-            sys.exit(1)
+            logger.warning("Can't find database: {0}".format(hmmdb))
+            logger.warning(
+                "attempting to find databases in bin/db, in case " +
+                " this was installed via conda alongside regular" +
+                " barrnap")
+            hmmdb = os.path.join(
+                os.path.dirname(__file__),
+                "db",
+                "{0}.hmm".format(args.kingdom))
+            if not os.path.exists(hmmdb):
+                logger.error(
+                    "Nope, can't find database: {0}".format(hmmdb))
+                sys.exit(1)
     else:
         logger.debug("Using database: {0}".format(hmmdb))
 
