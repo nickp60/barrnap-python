@@ -22,7 +22,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version="0.0.3",
+    version="0.0.4",
 
     description='python package for barrnap ',
     # long_description=long_description,
@@ -106,8 +106,8 @@ setup(
     #                    "examples/small.fna"]),
     # ],
     package_data={
-       '': [path.join(__name__, "examples/*"),
-            path.join(__name__, "db/*")],
+       '': [path.join(__name__, "barrnap", "examples/*"),
+            path.join(__name__, "barrnap", "db/*")],
     },
 
     # Although 'package_data' is the preferred approach, in some case you may

@@ -16,7 +16,7 @@ import pkg_resources
 # global variables
 OPSYS = platform.system().lower()
 EXE = __file__
-VERSION = "0.0.3"
+VERSION = "0.0.4"
 DESC = "rapid ribosomal RNA prediction"
 AUTHOR = 'Torsten Seemann <torsten.seemann@gmail.com>'
 URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
@@ -25,7 +25,7 @@ URL = 'https://github.com/Victorian-Bioinformatics-Consortium/barrnap'
 # our db of HMMs should be installed in site-packages somewhere when the
 # package was installed.  we set this below, to avoid issues when testing
 resource_package = pkg_resources.Requirement.parse("barrnap")
-DBDIR = pkg_resources.resource_filename("barrnap", 'db')
+DBDIR = pkg_resources.resource_filename(resource_package, 'db')
 NHMMER = shutil.which("nhmmer")
 
 LENG = {
@@ -166,8 +166,18 @@ def main(args, logger=None):
     # no need to check kingdom, argparse handles that
     hmmdb = os.path.join(DBDIR, "{0}.hmm".format(args.kingdom))
     if not os.path.exists(hmmdb):
-        logger.error("Can't find database: {0}".format(hmmdb))
-        sys.exit(1)
+        logger.warning("Can't find database: {0}".format(hmmdb))
+        logger.warning(
+            "attempting to find databases in bin/db, in case " +
+            " this was installed via conda alongside regular" +
+            " barrnap")
+        hmmdb = os.path.join(
+            os.path.dirname(__file__),
+            "db",
+            "{0}.hmm".format(args.kingdom))
+        if not os.path.exists(hmmdb):
+            logger.error("Nope, can't find database: {0}".format(hmmdb))
+            sys.exit(1)
     else:
         logger.debug("Using database: {0}".format(hmmdb))
 
