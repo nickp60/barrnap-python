@@ -22,7 +22,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version="0.0.2",
+    version="0.0.3",
 
     description='python package for barrnap ',
     # long_description=long_description,
@@ -121,5 +121,5 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     # Using the scripts keyword here for speed, as the entry points are not
     # yet defined
-    scripts=['barrnap.py'],
+    scripts=['barrnap/barrnap.py'],
 )

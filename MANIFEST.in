@@ -1,4 +1,4 @@
 include *.md
 include LICENS*
-#graft barrnap/db
-#graft barrnap/examples
+graft db
+graft examples
