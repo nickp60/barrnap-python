@@ -1,8 +1,17 @@
+Note -- The following README is a copy of the one included in the original
+repo (https://github.com/tseemann/barrnap).  This repository represents the porting
+of this project to python in order to make installation easier for users, due to
+the difficulty in resolving the Perl dependencies on Linux systems.
+Citations should go to the original author (@torstenseemann), while questions
+about the python version should be directed to me.
+
+Nick Waters - nickp60@gmail.com - @nickp60
+
 # Barrnap
 
 BAsic Rapid Ribosomal RNA Predictor
 
-## Author
+## Authors
 
 Torsten Seemann - torsten.seemann@gmail.com - @torstenseemann
 
@@ -37,15 +46,15 @@ Multithreading is supported and one can expect roughly linear speed-ups with mor
     P.marinus	barrnap:0.7	rRNA	355464	358334	0	+	.	Name=23S_rRNA;product=23S ribosomal RNA
     P.marinus	barrnap:0.7	rRNA	358433	358536	7.5e-07	+	.	Name=5S_rRNA;product=5S ribosomal RNA
 
-    % barrnap -q -k mito examples/mitochondria.fna 
+    % barrnap -q -k mito examples/mitochondria.fna
     ##gff-version 3
     AF346967.1	barrnap:0.7	rRNA	643	1610	.	+	.	Name=12S_rRNA;product=12S ribosomal RNA
     AF346967.1	barrnap:0.7	rRNA	1672	3228	.	+	.	Name=16S_rRNA;product=16S ribosomal RNA
 
 ## Caveats
 
-Barrnap does not do anything fancy. It has HMM models for each different rRNA gene. 
-They are built from full length seed alignments. 
+Barrnap does not do anything fancy. It has HMM models for each different rRNA gene.
+They are built from full length seed alignments.
 
 ## Requirements
 
@@ -68,14 +77,14 @@ RNAmmer is more sophisticated than Barrnap, and more accurate because it uses HM
 ## Data sources for HMM models
 
 <pre>
-Bacteria (70S)  
+Bacteria (70S)
         LSU 50S
                 5S      RF00001
                 23S     SILVA-LSU-Bac
         SSU 30S
                 16S     RF00177
 
-Archaea (70S)   
+Archaea (70S)
         LSU 50S
                 5S      RF00001
                 5.8S    RF00002
@@ -83,7 +92,7 @@ Archaea (70S)
         SSU 30S
                 16S     RF01959
 
-Eukarya (80S)   
+Eukarya (80S)
         LSU 60S
                 5S      RF00001
                 5.8S    RF00002
@@ -92,7 +101,7 @@ Eukarya (80S)
                 18S     RF01960
         Mito
                 12S     RefSeq (MT-RNR1, s-rRNA, rns)
-                16S     RefSeq (MT-RNR2, l-rRNA, rnl)       
+                16S     RefSeq (MT-RNR2, l-rRNA, rnl)
 
 TODO: [Sajeet Haridas]
 Fungi
@@ -103,9 +112,9 @@ Fungi
         SSU ?
                 18S
         Mito [http://www.ncbi.nlm.nih.gov/nuccore/NC_001224.1]
-                15S 
+                15S
                 21S (multiple exons)
-                
+
 
 TODO:
 Apicoplast [http://www.ncbi.nlm.nih.gov/nuccore/U87145.2]
@@ -122,6 +131,5 @@ Plastid [Shaun Jackman]
 The name Barrnap was originally derived from _Bacterial/Archaeal Ribosomal RNA Predictor_.
 However it has since been extended to support mitochondrial and eukaryotic rRNAs, and has been
 given the new backronym _BAsic Rapid Ribosomal RNA Predictor_.
-The project was originally spawned at CodeFest 2013 in Berlin, Germany 
+The project was originally spawned at CodeFest 2013 in Berlin, Germany
 by Torsten Seemann and Tim Booth.
-
